@@ -42,3 +42,11 @@ Use these as reference meshes, anatomical guides, or accessory sources as approp
 - Preserve the **Second Life bone naming and hierarchy** when adapting meshes for SL/OpenSim compatibility.
 - Prefer OpenSim-compatible meshes (when identified and licensed) for topology/weighting reference, while keeping the final rig aligned to SL defaults.
 - Record provenance and license details in your project notes for each asset you use.
+
+## Outworldz supplemental assets
+Free skin templates and clothing packs from Outworldz are tracked separately in
+`docs/outworldz_assets.md` and stored locally under `source/outworldz_assets/`.
+
+## Avatar detailing research
+Guidance on makeup/tattoo layers and high-detail workflows is tracked in
+`docs/avatar_detailing_research.md`.
