@@ -15,6 +15,14 @@ data class SwapPart(
     val category: String
 )
 
+data class ResourceLink(
+    val id: String,
+    val label: String,
+    val description: String,
+    val url: String,
+    val category: String
+)
+
 object AvatarOptions {
     val sliderSpecs = listOf(
         SliderSpec("height", "Height", 0.8f, 1.2f, 1.0f, "Body Proportions"),
@@ -63,5 +71,58 @@ object AvatarOptions {
         SwapPart("clothes_a", "Clothes: Starter Casual", "Clothing"),
         SwapPart("clothes_b", "Clothes: Formal Set", "Clothing"),
         SwapPart("clothes_c", "Clothes: Streetwear", "Clothing")
+    )
+
+    val resourceLinks = listOf(
+        ResourceLink(
+            id = "outworldz_free_sculpts",
+            label = "Outworldz Free Sculpt Library",
+            description = "Browse free mesh, sounds, OARs/IARs, Collada, and OBJ uploads " +
+                "for Second Life and OpenSim projects.",
+            url = "https://outworldz.com/cgi/freesculpts.plx",
+            category = "Outworldz"
+        ),
+        ResourceLink(
+            id = "outworldz_skin_female_template",
+            label = "Skin Template: Female 1",
+            description = "Female skin texture template pack from Outworldz (zip).",
+            url = "https://outworldz.com/cgi/sculpt-save.plx?File=/Sculpts/cgi/files/female1-skin-templates.zip",
+            category = "Outworldz Skins"
+        ),
+        ResourceLink(
+            id = "outworldz_skin_male_template",
+            label = "Skin Template: Male 1",
+            description = "Male skin texture template pack from Outworldz (zip).",
+            url = "https://outworldz.com/cgi/sculpt-save.plx?File=/Sculpts/cgi/files/male1-skin-templates.zip",
+            category = "Outworldz Skins"
+        ),
+        ResourceLink(
+            id = "outworldz_skin_fairy_template",
+            label = "Skin Template: Fairy",
+            description = "Fantasy skin texture template pack from Outworldz (zip).",
+            url = "https://outworldz.com/cgi/sculpt-save.plx?File=/Sculpts/cgi/files/fairy-skin-templates.zip",
+            category = "Outworldz Skins"
+        ),
+        ResourceLink(
+            id = "outworldz_clothing_male_tshirt",
+            label = "Mesh Clothing: Male Cuffed Sleeve T-Shirt",
+            description = "Rigged mesh clothing pack from Outworldz (zip).",
+            url = "https://outworldz.com/cgi/sculpt-save.plx?File=/Sculpts/cgi/files/LindaKellieRigged-MeshClothing-MaleCuffedSleeveTshirt.zip",
+            category = "Outworldz Clothing"
+        ),
+        ResourceLink(
+            id = "outworldz_clothing_female_hoodie",
+            label = "Mesh Clothing: Female Hoodie Sweater",
+            description = "Rigged mesh clothing pack from Outworldz (zip).",
+            url = "https://outworldz.com/cgi/sculpt-save.plx?File=/Sculpts/cgi/files/LindaKellieRigged-MeshClothing-Female-HoodieSweater.zip",
+            category = "Outworldz Clothing"
+        ),
+        ResourceLink(
+            id = "outworldz_clothing_rolled_pants",
+            label = "Mesh Clothing: Rolled Pants",
+            description = "Rigged mesh clothing pack from Outworldz (zip).",
+            url = "https://outworldz.com/cgi/sculpt-save.plx?File=/Sculpts/cgi/files/LindaKellieRigged-MeshClothing-RolledPants.zip",
+            category = "Outworldz Clothing"
+        )
     )
 }

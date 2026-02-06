@@ -1,5 +1,7 @@
 package com.meshmaker.avatarcreator.ui
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,7 +27,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.platform.LocalContext
 import com.meshmaker.avatarcreator.model.AvatarOptions
+import com.meshmaker.avatarcreator.model.ResourceLink
 import com.meshmaker.avatarcreator.model.SliderSpec
 
 @Composable
@@ -95,6 +99,23 @@ private fun AvatarCreatorScreen(modifier: Modifier = Modifier) {
                         text = "• ${part.label}",
                         style = MaterialTheme.typography.bodyMedium
                     )
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+        SectionHeader(title = "Free Resources")
+        Text(
+            text = "Download free skin templates and rigged clothing packs to seed your " +
+                "avatar experiments. Verify licenses before shipping any assets.",
+            style = MaterialTheme.typography.bodySmall
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        val resourceGroups = AvatarOptions.resourceLinks.groupBy { it.category }
+        resourceGroups.forEach { (category, resources) ->
+            CategoryCard(title = category) {
+                resources.forEach { resource ->
+                    ResourceRow(resource = resource)
                 }
             }
         }
@@ -190,5 +211,24 @@ private fun SliderRow(
             onValueChange = onValueChange,
             valueRange = slider.min..slider.max
         )
+    }
+}
+
+@Composable
+private fun ResourceRow(resource: ResourceLink) {
+    val context = LocalContext.current
+    Column(modifier = Modifier.padding(vertical = 8.dp)) {
+        Text(text = resource.label, style = MaterialTheme.typography.titleSmall)
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(text = resource.description, style = MaterialTheme.typography.bodySmall)
+        Spacer(modifier = Modifier.height(8.dp))
+        Button(
+            onClick = {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(resource.url))
+                context.startActivity(intent)
+            }
+        ) {
+            Text("Open Resource")
+        }
     }
 }
