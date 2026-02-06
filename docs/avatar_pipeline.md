@@ -17,6 +17,21 @@ This document defines the recommended avatar asset pipeline for creating product
 - **GLB/GLTF** (`.glb`/`.gltf`) for engine previews and lightweight validation.
 
 ## Rigging and Skin Weights Workflow
+### Second Life / OpenSim base assets
+When building starter meshes, **download and use the standard Second Life avatar body + skeleton** as the baseline rig. Use **open source OpenSim meshes and resources** as supplemental references for topology and weighting. Keep all assets in a clearly labeled `source/` folder and record license/attribution in the project notes. See the Drive asset inventory and download steps in `docs/asset_library.md`.
+
+**Recommended sources**
+- **Second Life (SL) avatar skeleton and body**: Use the official SL avatar skeleton/shape resources from Linden Lab or community documentation, ensuring the bone names and joint orientations match SL defaults. The Drive library includes `SecondLifeAvatarSkeleton.zip` with male and female skeletons in Blend/DAE/FBX/MA formats.
+- **OpenSim (Open Simulator) open source meshes**: Prefer OpenSim community avatar meshes and compatible skeletons that are explicitly open source. Verify licenses and attribution requirements before importing.
+
+**Practical guidance**
+- Preserve **SL bone names and hierarchy** to maintain compatibility with existing SL animations.
+- Retain **default joint positions** unless you have a documented reason to adjust them (and document any adjustments).
+- Use OpenSim mesh topology as a **reference** for clean deformation and LODs, but keep the final rig aligned to SL defaults.
+- Validate imports in Blender with a known-good SL animation set to confirm compatibility.
+- Build **shape sliders** that deform the standard SL skeleton into varied shapes (height, leg length, arm length, torso depth, head scale, hand size). Use Blender shape keys (or equivalent) tied to exportable sliders so creators can dial between extremes while preserving SL bone names, hierarchy, and animation compatibility.
+- For automated slider setup, follow `docs/shape_key_matching.md` to batch-transfer and validate shape keys between reference and target meshes.
+
 1. **Base rig creation**
    - Use **Mixamo** or **Auto-Rig Pro** for initial biped rig generation.
    - Ensure a consistent naming convention for bones (e.g., `Hips`, `Spine`, `Neck`, `Head`, `LeftArm`, `RightArm`).
